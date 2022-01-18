@@ -12,5 +12,6 @@ void delete(AVLTree *, double);
 AVLTree *avltree(void);
 AVLNode *avlnode(double);
 AVLNode *root(AVLTree *);
+const AVLNode *search(AVLTree *, double);
 
 #endif //AVLTREE_AVL_H

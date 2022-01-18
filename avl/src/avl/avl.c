@@ -136,6 +136,12 @@ AVLNode *root(AVLTree *tree) {
     return tree->root;
 }
 
+const AVLNode *search_helper(AVLNode *root, double val) {
+    if (root == NULL) return NULL;
+    if (root->val < val) return search_helper(root->right, val);
+    if (root->val > val) return search_helper(root->left, val);
+    return root;
+}
 
 void inorder(AVLNode *root) {
     if (root != NULL) {
@@ -151,4 +157,10 @@ void preorder(AVLNode *root) {
         preorder(root->left);
         preorder(root->right);
     }
+}
+
+const AVLNode *search(AVLTree *tree, double val) {
+    const AVLNode *n = search_helper(tree->root, val);
+    if (n == NULL) return NULL;
+    return n;
 }
